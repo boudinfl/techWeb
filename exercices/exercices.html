@@ -27,7 +27,7 @@
             padding-left: 5px;
         }
 
-        li.ex1, li.ex2, li.ex3 {
+        li.ex1, li.ex2, li.ex3, li.ex4 {
             margin-bottom: 20px;
         }
 
@@ -44,6 +44,11 @@
         article#ex3, li.ex3 {
             border-left: 3px solid Crimson;
             background: #FFF0FF;
+        }
+
+        article#ex4, li.ex4 {
+            border-left: 3px solid ForestGreen;
+            background: #EEFFEE;
         }
 
         article h2, nav h2 {
@@ -92,6 +97,13 @@
                     <ol>
                         <li><a href="#ex3_1">Ecriture d’une feuille de style</a></li>
                         <li><a href="#ex3_2">Le positionnement des éléments</a></li>
+                    </ol>
+                </li>
+                <li class="ex4"><a href="#ex4">Notions avancées de CSS</a>
+                    <ol>
+                        <li><a href="#ex4_1">Pseudo-classes et pseudo-éléments</a></li>
+                        <li><a href="#ex4_2">Quelques nouveaux effets CSS3</a></li>
+                        <li><a href="#ex4_3">Le positionnement par grille</a></li>
                     </ol>
                 </li>
             </ol>
@@ -433,6 +445,68 @@ div {color: black;}
 
             <img class="screenshot" src="img/ex3_2_4a.png" alt="Page web avec style 3 haut" />
             <img class="screenshot" src="img/ex3_2_4b.png" alt="Page web avec style 3 bas" />
+
+        </article>
+
+        <article id="ex4">
+
+            <h2>Notions avancées de CSS</h2>
+
+            <h3 id="ex4_1">Pseudo-classes et pseudo-éléments</h3>
+
+            <p>Les sélecteurs que vous avez vu permettent d’attribuer un style à un ou plusieurs éléments bien définis dans la hiérarchie d’un document HTML. Les pseudo-classes et les pseudo-éléments permettent d’attribuer un style à une partie abstraite d’un document non identifiable dans cette hiérarchie, par exemple le premier caractère ou la première ligne d’un paragraphe. D’autres pseudo-classes permettent d’attribuer un style à un document en fonction des actions prévisibles mais non déterminées de l’utilisateur final, comme le fait de placer son curseur sur un lien ou un composant de formulaire. Plus d’informations sont disponibles sur :</p>
+
+            <ul>
+                <li><a href="https://developer.mozilla.org/fr/docs/Web/CSS/Pseudo-classes">https://developer.mozilla.org/fr/docs/Web/CSS/Pseudo-classes</a></li>
+                <li><a href="https://developer.mozilla.org/fr/docs/Web/CSS/Pseudo-éléments">https://developer.mozilla.org/fr/docs/Web/CSS/Pseudo-éléments</a></li>
+            </ul>
+
+            <p>Repartez du fichier <a href="data/positionnement.html"><code>positionnement.html</code></a> et créez une feuille de style permettant de :</p>
+
+            <ol>
+                <li>Mettre les liens visités/non-visités en rouge, les liens survolés en blanc sur fond rouge et les liens sélectionnés en vert</li>
+                <li>Changer la couleur de fond des paragraphes survolés en gris clair</li>
+                <li>Agrandir la taille de la police du premier caractère de chaque paragraphe du contenu</li>
+                <li>Changer la couleur du texte du premier paragraphe du contenu en vert foncé et agrandir la taille de sa police de 120%</li>
+                <li>Ajouter un cadre autour des paragraphes impairs du contenu</li>
+            </ol>
+
+            <p>Une capture d’écran du résultat que vous devez obtenir est montré ci-dessous.</p>
+
+            <img class="screenshot" src="img/ex4_1.png" alt="Exemple d''utilisation des pseudo-classes et pseudo-éléments" />
+            
+            <h3 id="ex4_2">Quelques nouveaux effets CSS3</h3>
+
+            <p>De nombreuses nouvelles fonctionnalités ont été introduites par CSS3. Il est maintenant possible de réaliser des transformations, animations, etc. directement à partir des feuilles de style. Commencez par lire les tutoriaux :</p>
+
+            <ul>
+                <li><a href="http://net.tutsplus.com/tutorials/html-css-techniques/10-css3-properties-you-need-to-be-familiar-with/">http://net.tutsplus.com/tutorials/html-css-techniques/10-css3-properties-you-need-to-be-familiar-with/</a></li>
+                <li><a href="http://net.tutsplus.com/tutorials/design-tutorials/quick-tip-how-to-work-with-font-face/">http://net.tutsplus.com/tutorials/design-tutorials/quick-tip-how-to-work-with-font-face/</a></li>
+            </ul>
+
+            <p>Toujours à partie de <a href="data/positionnement.html"><code>positionnement.html</code></a>, créez les règles CSS permettant de réaliser les effets décrits ci-dessous :</p>
+
+            <ol>
+                <li>Changer la police des titres de section par une fournie sur <a href="https://www.google.com/fonts">Google fonts</a> et modifier leur taille.</li>
+                <li>Ajouter un effet aux liens de navigation : lorsque l’utilisateur passe sa souris sur un lien, le texte se décale vers la gauche et la couleur de fond devient rouge (utilisez <code>transition</code>).</li>
+                <li>Effectuer une rotation du titre de section 2 de 3 degrés vers la droite.</li>
+                <li>Ajouter une ombre rouge aux titres de section et sous-section.</li>
+                <li>Modifiez les paragraphes de la section 2 pour que le texte soit disposé dans deux colonnes.</li>
+                <li>Effectuer, lorsque l’utilisateur passe sa souris sur le contenu, une rotation complète du contenu de la page.</li>
+                <li>Ajouter une bordure aux bords arrondis au pied de page et créer une animation qui fait bouger le pied de page de gauche à droite de manière infinie.</li>
+            </ol>
+
+            <p>Pour vous aider dans la création de votre feuille de style, une capture d’écran est donnée ci-dessous.</p>
+
+            <img class="screenshot" src="img/ex4_2.png" alt="Exemple d'utilisation des nouveaux effets CSS3" />
+
+            <h3 id="ex4_3">Le positionnement par grille</h3>
+
+            <p>Le concept général de positionnement en grille (Grid Layout) consiste à diviser virtuellement l’espace en différentes zones. Concrètement et schématiquement, il s’agit de découper en lignes et en colonnes comme vous le feriez pour un tableau de mise en page. Utiliser ce type de positionnement facilite grandement la mise en page CSS et par conséquent permet d’accélérer le temps de développement. CSS3 inclut un module de Grid Layout qui malheureusement est encore au stade de brouillon. Pour pallier ce problème, de nombreux frameworks CSS de positionnement en grille ont été développés : Blueprint, 960 Grid System, 1140 CSS grid, etc. Le but de cet exercice est de vous familiariser avec ce type d’outil.</p>
+
+            <p>Téléchargez le framework 960 Grid System (<a href="http://960.gs">http://960.gs</a>) et lisez la documentation incluse dans l’archive. Un tutoriel est également disponible à l’adresse <a href="http://sixrevisions.com/web_design/the-960-grid-system-made-easy/">http://sixrevisions.com/web_design/the-960-grid-system-made-easy/</a>. Votre tâche consiste à mettre en page le document HTML <a href="data/grille.html">grille.html</a> pour qu’il ressemble le plus à celui présenté ci-dessous.</p>
+
+            <img class="screenshot" src="img/ex4_3.png" alt="Exemple de positionnement par grille" />
 
         </article>
 
