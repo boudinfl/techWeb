@@ -27,7 +27,7 @@
             padding-left: 5px;
         }
 
-        li.ex1, li.ex2, li.ex3, li.ex4 {
+        li.ex1, li.ex2, li.ex3, li.ex4, li.ex5 {
             margin-bottom: 20px;
         }
 
@@ -49,6 +49,11 @@
         article#ex4, li.ex4 {
             border-left: 3px solid ForestGreen;
             background: #EEFFEE;
+        }
+
+        article#ex5, li.ex5 {
+            border-left: 3px solid DarkSlateBlue ;
+            background: #EEEEFF;
         }
 
         article h2, nav h2 {
@@ -99,11 +104,17 @@
                         <li><a href="#ex3_2">Le positionnement des éléments</a></li>
                     </ol>
                 </li>
-                <li class="ex4"><a href="#ex4">Notions avancées de CSS</a>
+                <li class="ex4"><a href="#ex4">Série d'exercices 4 - Notions avancées de CSS</a>
                     <ol>
                         <li><a href="#ex4_1">Pseudo-classes et pseudo-éléments</a></li>
                         <li><a href="#ex4_2">Quelques nouveaux effets CSS3</a></li>
                         <li><a href="#ex4_3">Le positionnement par grille</a></li>
+                    </ol>
+                </li>
+                <li class="ex5"><a href="#ex5">Série d'exercices 5 - Media queries et dessin vectoriel</a>
+                    <ol>
+                        <li><a href="#ex5_1">Les Media Queries CSS3</a></li>
+                        <li><a href="#ex5_2">Dessin vectoriel SVG</a></li>
                     </ol>
                 </li>
             </ol>
@@ -507,6 +518,135 @@ div {color: black;}
             <p>Téléchargez le framework 960 Grid System (<a href="http://960.gs">http://960.gs</a>) et lisez la documentation incluse dans l’archive. Un tutoriel est également disponible à l’adresse <a href="http://sixrevisions.com/web_design/the-960-grid-system-made-easy/">http://sixrevisions.com/web_design/the-960-grid-system-made-easy/</a>. Votre tâche consiste à mettre en page le document HTML <a href="data/grille.html">grille.html</a> pour qu’il ressemble le plus à celui présenté ci-dessous.</p>
 
             <img class="screenshot" src="img/ex4_3.png" alt="Exemple de positionnement par grille" />
+
+        </article>
+
+        <article id="ex5">
+
+            <h2>Media Queries et dessin vectoriel</h2>
+
+            <h3 id="ex5_1">Les Media Queries CSS3</h3>
+
+            <p>Depuis les dernières années, les médias capables de visualiser une page web se sont multipliés. Il n’ont pas tous les mêmes capacités en termes d’affichage, bien que la différence de résolution entre un ordinateur et un téléphone portable, par exemple, s’amenuise de plus en plus, sans parler des tablettes tactiles. Il est donc nécessaire d’adapter la présentation d’une page pour tenir compte des capacités de ces différents terminaux. C’est l’objet des Media Queries qui permettent de cibler ces terminaux et de créer des styles spécifiques adaptés à chaque catégorie.</p>
+
+            <p>Les Media Queries sont des expressions booléennes qui sont associées à des ensembles de styles spécifiques. Si la condition est réalisée, les styles qui suivent sont appliqués. Avec l’élément <code>&lt;link&gt;</code>, la condition est écrite dans l’attribut media sous la forme :</p>
+
+            <code>&lt;link rel="stylesheet" media="terminal and (expression)" href="style.css"&gt;</code>
+
+            <p>Le nom du terminal doit être donné par un des mots clés du tableau ci-dessous. Il peut être précédé de l’opérateur <code>only</code> (seulement celui-là) ou <code>not</code> (tout mais pas celui-là).</p>
+
+            <table border="1">
+                <tr>
+                    <th>Mot-clé</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td><code>aural</code></td>
+                    <td>Navigateur oral (qui transcrit le texte en parole)</td>
+                </tr>
+                <tr>
+                    <td><code>braille</code></td>
+                    <td>Terminal qui transcrit en braille</td>
+                </tr>
+                <tr>
+                    <td><code>handheld</code></td>
+                    <td>Téléphone (pas forcement reconnu par les téléphones)</td>
+                </tr>
+                <tr>
+                    <td><code>print</code></td>
+                    <td>Imprimante</td>
+                </tr>
+                <tr>
+                    <td><code>projection</code></td>
+                    <td>Rétro-projecteur</td>
+                </tr>
+                <tr>
+                    <td><code>screen</code></td>
+                    <td>Ecran d’ordinateur, tablette, téléphone</td>
+                </tr>
+                <tr>
+                    <td><code>tv</code></td>
+                    <td>Télévision</td>
+                </tr>
+                <tr>
+                    <td><code>all</code></td>
+                    <td>Tous les médias confondus</td>
+                </tr>
+            </table>
+
+            <p>La définition des styles dans l’élément <code>&lt;style&gt;</code> utilise la directive <code>@media</code> pour contenir l’expression booléenne, elle est suivie des styles choisis sous la forme :</p>
+
+            <pre><code>
+@media terminal and (expression) {
+    element1 {style1:valeur;}
+    element2 {style2:valeur;}
+}
+            </code></pre>
+
+            <p>Par exemple, pour cibler les écrans dont le navigateur a une largeur supérieure à 640 pixels et fixer la couleur du texte en bleu, il faut écrire le code suivant :</p>
+
+            <pre><code>
+@media screen and (min-width: 400px) {
+    body {color:red;}
+}
+            </code></pre>
+
+            <p>Pour plus d’informations, visitez les tutoriels aux adresses suivantes :</p>
+
+            <ul>
+                <li><a href="https://developer.mozilla.org/fr/docs/Web/CSS/Media_queries">https://developer.mozilla.org/fr/docs/Web/CSS/Media_queries</a></li>
+                <li><a href="http://webdesignerwall.com/tutorials/css3-media-queries">http://webdesignerwall.com/tutorials/css3-media-queries</a></li>
+            </ul>
+
+            <p>Téléchargez les documents <a href="data/example.html"><code>example.html</code></a>, <a href="data/style-ecran.css"><code>style-ecran.css</code></a> et <a href="data/tux.png"><code>tux.png</code></a> à partir du site web du cours. Ouvrez le document HTML avec un navigateur pour en visualiser le contenu. La capture d’écran ci-dessous illustre ce que vous devez obtenir.</p>
+
+            <img class="screenshot" src="img/ex5_1a.png" alt="Exemple pour les Media Queries" />
+
+            <p>Votre tâche consiste à créer deux feuilles de style pour des terminaux différents et d’utiliser les Media Queries pour sélectionner la feuille de style la plus adaptée.</p>
+
+            <p>La première feuille de style doit permettre une meilleur visualisation du contenu pour les navigateurs aynt une résolution de moins de 640 pixels de largeur. Les modifications de style qui y ont été apportées sont : déplacement des liens de navigations, suppression des cadres, réduction de l’image, réduction de la taille de la police, etc. La seconde feuille de style est destinée a adapter le contenu pour l’impression. Ici, il s’agira de supprimer les liens de navigation et le pied de page, de changer le fond en blanc, etc. Des exemples de ce que vous devez obtenir sont montré dans les deux figures ci-dessous.</p>
+
+            <img style="width:250px;" src="img/ex5_1b.png" alt="Exemple avec le style pour petits écrans" />
+            <img style="width:250px;" src="img/ex5_1c.png" alt="Exemple avec le style pour l'impression" />
+
+            <h3 id="ex5_2">Dessin vectoriel SVG</h3>
+
+            <p>Le langage SVG (Scalable Vector Graphics) est une application XML qui permet de créer des dessins vectoriels, aussi bien des figures géométriques que des textes et même des images complexes. Il est possible d’inclure des images SVG de deux façons différentes. Tout d’abord en incluant un fichier <code>.svg</code>, créé manuellement ou en utilisant un logiciel comme Inkscape, à l’aide de l’élément <code>&lt;embed&gt;</code>. La seconde méthode consiste à écrire le code directement dans la page à l’aide de l’élément <code>&lt;svg&gt;</code>. C’est cette dernière méthode que vous devrez utiliser ici. La structure d’une page contenant du code SVG est la suivante :</p>
+
+            <pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta http-equiv="Content-type" content="text/html;charset=UTF-8" /&gt;
+        &lt;title&gt;Document avec SVG&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;svg width="400" height="300" version="1.1"&gt;
+        
+        &lt;!-- Eléments de création des figures --&gt;
+
+        &lt;/svg&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+            </code></pre>
+
+            <p>Les attributs <code>width</code> et <code>height</code>  définissent les dimensions de la boîte qui va contenir le dessin créé par les éléments inclus dans <code>&lt;svg&gt;</code>. On pourra ensuite utiliser les propriétés CSS, comme on l’effectue avec une image ordinaire, pour la positionner. Pour plus d’information, lisez les tutoriels :</p>
+
+            <ul>
+                <li><a href="https://developer.mozilla.org/fr/docs/Introduction_à_SVG_dans_HTML">https://developer.mozilla.org/fr/docs/Introduction_à_SVG_dans_HTML</a></li>
+                <li><a href="http://blogs.msdn.com/b/davrous/archive/2014/07/11/introduction-aux-apis-graphiques-d-html5-svg-amp-canvas-1-4.aspx">http://blogs.msdn.com/b/davrous/archive/2014/07/11/introduction-aux-apis-graphiques-d-html5-svg-amp-canvas-1-4.aspx</a></li>
+            </ul>
+
+            <p>A partir d’une boîte de dimension 600 pixels par 200 pixels, votre tâche consiste à reproduire aussi fidèlement que possible la figure montrée ci-dessous. Chaque drapeau doit avoir un lien vers la page Wikipedia du pays correspondant. Ainsi lorsque l’utilisateur clique sur un drapeau, une nouvelle fenêtre est ouverte avec l’article Wikipedia du pays correspondant.</p>
+
+            <img class="screenshot" src="img/ex5_2a.png" alt="Dessins de drapeaux en SVG" />
+
+            <p>A partir d'un dessin SVG existant (<a href="data/panda.html">panda.html</a>), votre tâche sera ensuite de modifier le style des éléments à l'aide de règles CSS. Dans un deuxième temps, créez une animation permettant de faire tourner l'image sur elle-même. Des captures d'écran de ce que vous devez obtenir sont montrées ci-dessous.</p>
+
+            <img style="width:150px;" src="img/ex5_2b1.png" alt="panda 1" />
+            <img style="width:150px;" src="img/ex5_2b2.png" alt="panda 2" />
+            <img style="width:150px;" src="img/ex5_2b3.png" alt="panda 3" />
+            <img style="width:150px;" src="img/ex5_2b4.png" alt="panda 4" />
 
         </article>
 
